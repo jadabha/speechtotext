@@ -1,0 +1,26 @@
+name: Run Python Script
+
+on:
+  push:    # Runs when you push changes to GitHub
+  schedule:
+    - cron: '30 * * * *'  # Runs daily at midnight (UTC)
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt || echo "No dependencies to install"
+
+      - name: Run Python script
+        run: python script.py

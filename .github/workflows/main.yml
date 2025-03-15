@@ -2,8 +2,8 @@ name: Run Python Script
 
 on:
   push:    # Runs when you push changes to GitHub
-  schedule:
-    - cron: '*/2 * * * *'  # Runs daily at midnight (UTC)
+  # schedule:
+    # - cron: '*/2 * * * *'  # Runs daily at midnight (UTC)
 
 jobs:
   run-script:
